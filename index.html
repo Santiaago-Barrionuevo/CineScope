@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CineScope — Buscá películas y series, filtrá por género y año, guardá tus favoritos." />
+  <title>CineScope</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner">
+      <a href="#" class="header__logo" id="btnHome">
+        <span class="logo-icon">🎬</span> CineScope
+      </a>
+      <nav class="header__nav">
+        <button class="nav-tab active" data-type="movie">Películas</button>
+        <button class="nav-tab" data-type="tv">Series</button>
+        <button class="nav-tab" data-type="trending">Tendencias</button>
+      </nav>
+      <button class="btn-favs" id="btnFavs">
+        ★ Favoritos <span class="favs-count" id="favsCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero-search">
+    <h1 class="hero-search__title">¿Qué querés ver hoy?</h1>
+    <div class="search-bar">
+      <input
+        type="text"
+        id="searchInput"
+        class="search-bar__input"
+        placeholder="Buscar película o serie..."
+        autocomplete="off"
+      />
+      <button class="search-bar__btn" id="btnSearch">Buscar</button>
+    </div>
+  </section>
+
+  <section class="filters" id="filtersBar">
+    <select class="filters__select" id="genreFilter">
+      <option value="">Todos los géneros</option>
+    </select>
+    <select class="filters__select" id="yearFilter">
+      <option value="">Todos los años</option>
+    </select>
+    <select class="filters__select" id="sortFilter">
+      <option value="popularity.desc">Más populares</option>
+      <option value="vote_average.desc">Mejor puntuados</option>
+      <option value="release_date.desc">Más recientes</option>
+    </select>
+    <button class="btn-clear" id="btnClear">Limpiar</button>
+  </section>
+
+  <div class="results-info" id="resultsInfo"></div>
+
+  <main class="grid" id="grid"></main>
+
+  <div class="pagination" id="pagination"></div>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal" role="dialog" aria-modal="true">
+      <button class="modal__close" id="modalClose" aria-label="Cerrar">✕</button>
+      <div class="modal__content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <aside class="favs-panel" id="favsPanel" aria-label="Favoritos">
+    <div class="favs-panel__header">
+      <h2>Mis favoritos</h2>
+      <button class="favs-panel__close" id="favsPanelClose" aria-label="Cerrar favoritos">✕</button>
+    </div>
+    <div class="favs-panel__list" id="favsList"></div>
+    <button class="btn-clear favs-panel__clear" id="btnClearFavs">Limpiar todo</button>
+  </aside>
+  <div class="overlay" id="favsOverlay"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
